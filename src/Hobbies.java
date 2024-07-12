@@ -29,7 +29,8 @@ public class Hobbies {
 
                 JLabel label = new JLabel();
                 label.setIcon(new ImageIcon("C:\\Users\\richa\\OneDrive\\Imágenes\\Capturas de pantalla\\OIP.jpg"));
-                label.add(label);
+                frame.add(label, BorderLayout.CENTER);
+
             }
         });
     }
