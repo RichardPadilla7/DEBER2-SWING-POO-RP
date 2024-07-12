@@ -1,4 +1,4 @@
-
+//Richard Padilla
 import javax.swing.*;
 import java.awt.*;
 
