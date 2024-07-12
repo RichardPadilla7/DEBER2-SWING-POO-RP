@@ -1,8 +1,8 @@
-//Richard Padilla
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class Hobbies {
     public JPanel pasatiempo;
@@ -17,8 +17,16 @@ public class Hobbies {
         btnregresar = new JButton("Regresar");
         pasatiempo.add(btnregresar, BorderLayout.SOUTH);
 
-        JLabel label = new JLabel(new ImageIcon("C:\\Users\\richa\\OneDrive\\Imágenes\\Capturas de pantalla\\OIP.jpg"));
-        pasatiempo.add(label, BorderLayout.CENTER);
+        try {
+            URL imageUrl = new URL("https://th.bing.com/th/id/OIP.ph2ASpZAZoAmqgJ6qN174wAAAA?rs=1&pid=ImgDetMain");
+            ImageIcon imageIcon = new ImageIcon(imageUrl);
+            JLabel label = new JLabel(imageIcon);
+            pasatiempo.add(label, BorderLayout.CENTER);
+        } catch (Exception e) {
+            JLabel errorLabel = new JLabel("Error al cargar la imagen");
+            pasatiempo.add(errorLabel, BorderLayout.CENTER);
+            e.printStackTrace();
+        }
 
         btnregresar.addActionListener(new ActionListener() {
             @Override
