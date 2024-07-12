@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +11,11 @@ public class Login {
     public JButton btnsesion;
     public JLabel usuario;
     public JLabel contrasenia;
+    public JFrame loginFrame;
 
-    public Login() {
+    public Login(JFrame frame) {
+        this.loginFrame = frame;
+
         textuser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -20,20 +24,29 @@ public class Login {
         Textpassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
             }
         });
-
         btnsesion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String user = textuser.getText();
-                String pass = Textpassword.getText();
+                String pass = new String(Textpassword.getPassword());
 
-                if(user.equals("richard") && pass.equals("123456")){
+                if (user.equals("richard") && pass.equals("123456")) {
                     JOptionPane.showMessageDialog(null, "Credenciales correctas");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta. Intente de nuevo!.");
+
+                    loginFrame.dispose();
+
+                    JFrame frame = new JFrame("Bibliografía - Richard Padilla");
+                    frame.setContentPane(new Bibliografia(frame).biblio);
+                    frame.setSize(600, 400);
+                    frame.setPreferredSize(new Dimension(600, 400));
+                    frame.setMinimumSize(new Dimension(600, 400));
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.pack();
+                    frame.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta. ¡Intente de nuevo!");
                 }
             }
         });
