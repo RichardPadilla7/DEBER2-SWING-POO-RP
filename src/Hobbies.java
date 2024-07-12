@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
 
 public class Hobbies {
     public JPanel pasatiempo;
@@ -25,10 +26,11 @@ public class Hobbies {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+
+                JLabel label = new JLabel();
+                label.setIcon(new ImageIcon("C:\\Users\\richa\\OneDrive\\Imágenes\\Capturas de pantalla\\OIP.jpg"));
+                label.add(label);
             }
         });
-
-        JLabel imageLabel = new JLabel(new ImageIcon("https://th.bing.com/th/id/OIP.mLCV_UHkm9JiAT6ywSX45QHaEK?rs=1&pid=ImgDetMain"));
-        pasatiempo.add(imageLabel);
     }
 }
